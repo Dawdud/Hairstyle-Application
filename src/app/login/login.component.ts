@@ -25,8 +25,17 @@ export class LoginComponent implements OnInit {
     if (username === 'admin' && password === 'admin') {
       console.log("logowanie prawidłowe");
       this.user.setUserLoggedIn(true);
-
+      this.user.setUsername(password);
       this.router.navigate(['dashboard']);
+    }
+
+    if (username === password) {
+      console.log("witaj, " + username + " !");
+    }
+
+    if (password === "0") {
+      console.log("ale masz słabe hasło, " + username);
+
     }
 
 
