@@ -8,7 +8,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { RouterModule, Routes} from '@angular/router';
 import { UserService } from './user.service';
-import {AuthGuard} from './auth.guard';
+import { AuthGuard } from './auth.guard';
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
 
 const appRoutes: Routes = [
   {
@@ -31,7 +35,10 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
