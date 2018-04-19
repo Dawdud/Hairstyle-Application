@@ -1,0 +1,44 @@
+$main-gray: rgb(214, 206, 206);
+$main-green: rgb(39, 241, 194);
+$btn-green: rgba(28, 128, 104, .5);
+
+header {
+   background-image: linear-gradient(rgba(0, 0, 0, .7)), url(assets/img/head.jpg);
+   background-size: cover;
+   background-position: center;
+   height: 100vh;
+   
+   .center-text {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      width: 100%;
+
+      h1 {
+         color: $main-gray;
+         word-spacing: 10px;
+         letter-spacing: 8px;
+         margin-bottom: 100px;
+         font-size: 50px;
+         font-family: 'Dancing Script', cursive;
+      }
+   }
+
+   .btn-main {
+      display: inline-block;
+      border: 1px solid $main-green;
+      border-radius: 20px;
+      padding: 10px 25px;
+      text-decoration: none;
+      color: $main-green;
+      font-size: 16px;
+      transition: all .3s;
+
+      &:hover {
+         background-color: $btn-green;
+         color: $main-gray;
+      }
+   }
+}
