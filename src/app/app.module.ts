@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 import { RouterModule, Routes} from '@angular/router';
 import { AuthGuard } from './auth.guard';
@@ -36,10 +37,10 @@ const appRoutes: Routes = [
   }
 ];
 
-
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
     LoginComponent,
     DashboardComponent,
     UserInfoComponent
