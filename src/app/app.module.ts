@@ -17,6 +17,7 @@ import {AuthService} from './auth.service';
 import {FormsModule} from '@angular/forms';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { AboutComponent } from './about/about.component';
+import { ContactComponent} from './contact/contact.component';
 
 const appRoutes: Routes = [
   {
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     LoginComponent,
     DashboardComponent,
     UserInfoComponent,
-    AboutComponent
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
