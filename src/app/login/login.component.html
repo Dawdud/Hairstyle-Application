@@ -1,7 +1,7 @@
 
 {{checkUserInfo()}}
 <div *ngIf="!authService.isUserEmailLoggedIn">
-  <div style="width: 350px;" *ngIf="isNewUser">
+  <div style="width: 200px;" *ngIf="isNewUser">
 
     <p *ngIf="errorMessage.length > 0" class="text-danger">
       {{errorMessage}}</p>
@@ -16,17 +16,18 @@
       </div>
 
       <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password">Hasło</label>
         <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="password">
       </div>
 
-      <button type="submit" class="btn btn-success">Register</button>
+      <button type="submit" class="btn btn-success">Zarejestruj</button>
     </form>
 
-    <h4 class="text-primary" (click)="changeForm()">Already have an Account? >> Log In</h4>
+    <h4>Masz już konto?</h4>
+    <button class="btn btn-danger" (click)="changeForm()">Zaloguj się</button>
   </div>
 
-  <div style="width: 350px;" *ngIf="!isNewUser">
+  <div style="width: 200px;" *ngIf="!isNewUser">
 
     <p *ngIf="errorMessage.length > 0" class="text-danger">
       {{errorMessage}}</p>
@@ -41,17 +42,18 @@
       </div>
 
       <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password">Hasło</label>
         <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="password">
       </div>
 
-      <button type="submit" class="btn btn-success">Log In</button>
+      <button type="submit" class="btn btn-success">Zaloguj</button>
     </form>
 
-    <h4 class="text-primary" (click)="changeForm()">Not have any Account yet? >> Register</h4>
+    <h4>Nie masz jeszcze konta?</h4>
+    <button class="btn btn-danger" (click)="changeForm()">Zarejestruj się</button>
 
-    <a *ngIf="!resetPassword && isValidMailFormat(email)" class="text-danger" (click)="sendResetEmail()">Reset Password for {{email}}</a>
-    <p *ngIf="resetPassword" class="text-success">Check your email to reset password!</p>
+    <!--<a *ngIf="!resetPassword && isValidMailFormat(email)" class="text-danger" (click)="sendResetEmail()">Zapomniałeś hasła? Odzyskaj hasło dla konta {{email}}</a>-->
+    <!--<p *ngIf="resetPassword" class="text-success">Sprawdź wiadomość email, aby zresetować hasło!</p>-->
 
   </div>
 </div>
