@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { HeaderComponent } from './header/header.component';
 
 import { RouterModule, Routes} from '@angular/router';
 import { AuthGuard } from './auth.guard';
@@ -51,7 +52,8 @@ const appRoutes: Routes = [
     UserInfoComponent,
     AboutComponent,
     ContactComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
