@@ -1,24 +1,24 @@
-$main-gray: rgb(214, 206, 206);
-$main-green: rgb(39, 241, 194);
-
-nav {
-   background-color: transparent;
-   border-bottom: none;
-
-   .navbar-brand {
-      color: $main-gray;
-      font-size: 20px;
-      padding-top: 24px;
-   }
-
-   .navbar-nav a {
-      color: $main-gray;
-      font-size: 16px;
-      padding-top: 25px;
-
-      &:hover {
-         color: $main-gray;
-         border-bottom: 1px solid $main-green;
-      }
-   }
-}
+//$main-gray: rgb(214, 206, 206);
+//$main-green: rgb(39, 241, 194);
+//
+//nav {
+//   background-color: transparent;
+//   border-bottom: none;
+//
+//   .navbar-brand {
+//      color: $main-gray;
+//      font-size: 20px;
+//      padding-top: 24px;
+//   }
+//
+//   .navbar-nav a {
+//      color: $main-gray;
+//      font-size: 16px;
+//      padding-top: 25px;
+//
+//      &:hover {
+//         color: $main-gray;
+//         border-bottom: 1px solid $main-green;
+//      }
+//   }
+//}
