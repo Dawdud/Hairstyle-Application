@@ -3,11 +3,11 @@ $main-green: rgb(39, 241, 194);
 $btn-green: rgba(28, 128, 104, .5);
 
 header {
-   background-image: linear-gradient(rgba(0, 0, 0, .7)), url(assets/img/head.jpg);
+   background-image: linear-gradient(rgba(0, 0, 0, .7)), url(../../assets/img/head.jpg);
    background-size: cover;
    background-position: center;
    height: 100vh;
-   
+
    .center-text {
       position: absolute;
       top: 30%;
