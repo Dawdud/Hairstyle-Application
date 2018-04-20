@@ -21,6 +21,7 @@ import {FormsModule} from '@angular/forms';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent} from './contact/contact.component';
+import { CommentsComponent } from './comments/comments.component';
 
 const appRoutes: Routes = [
   {
@@ -53,7 +54,8 @@ const appRoutes: Routes = [
     AboutComponent,
     ContactComponent,
     EmployeeComponent,
-    HeaderComponent
+    HeaderComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
