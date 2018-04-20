@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    FooterComponent,
     NavbarComponent,
     LoginComponent,
     DashboardComponent,
