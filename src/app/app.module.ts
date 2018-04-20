@@ -16,6 +16,7 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AuthService} from './auth.service';
 import {FormsModule} from '@angular/forms';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { AboutComponent } from './about/about.component';
 
 const appRoutes: Routes = [
   {
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     LoginComponent,
     DashboardComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
