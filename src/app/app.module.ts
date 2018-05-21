@@ -22,6 +22,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent} from './contact/contact.component';
 import { CommentsComponent } from './comments/comments.component';
+import {AngularFirestore} from 'angularfire2/firestore';
 
 const appRoutes: Routes = [
   {
@@ -65,7 +66,7 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     AngularFireDatabaseModule
   ],
-  providers: [AuthGuard, AuthService],
+  providers: [AuthGuard, AuthService, AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

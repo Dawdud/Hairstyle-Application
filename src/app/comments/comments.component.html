@@ -21,3 +21,10 @@
     </div>
   </div>
 </div>
+<div class="container">
+  <ul *ngFor="let comment of comments | async">
+    <li>
+      {{comment.name}}, lat {{comment.age}}
+    </li>
+  </ul>
+</div>
