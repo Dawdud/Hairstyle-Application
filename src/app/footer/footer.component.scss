@@ -1,46 +1,31 @@
-@import "./modules/colors.scss";
-@import "./modules/typography.scss";
+@import "../sass/typography.scss";
+@import "../sass/colors.scss";
 
-.social-box{
- font-size: $size-stack;
- 
-}
- a
-{
-    color: $font-primary-color;
-    font-size: $size-link;
-    text-decoration: none;
-    
+footer {
+    background-color: $footer-main;
+
+    .social-box {
+        font-size: $size-stack;
+
+        a {
+            color: $social-icon;
+            font-size: $size-link;
+            text-decoration: none;
+
+            &:hover {
+                color: $social-icon-hover;
+            } 
+        }
+    }
+
+    .copyright {
+        text-align: center;
+        font-size: $size-small;
+        padding-top: 20px;
+
+        p {
+            color: $social-icon;
+        }
+    }
 }
 
-#footer-information
-{
-    padding-top: 15px;
-}
-.fa-facebook-square
-{
-    color: $facebook-color;
-}
-.fa-twitter-square
-{
-    color:$twitter-color;
-}
-.fa-google-plus-square
-{
-    color: $googleplus-color;
-}
-.fa-instagram
-{
-    color: $instagram-color;
-}
-#socials
-{
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
-}
-.copyright
-{
-    text-align: center;
-    font-size: $size-small;
-    padding-top: 70px;
-}

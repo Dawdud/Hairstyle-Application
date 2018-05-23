@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -22,6 +22,9 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent} from './contact/contact.component';
 import { CommentsComponent } from './comments/comments.component';
+import { MapComponent } from './map/map.component';
+import { InfoComponent } from './info/info.component';
+import { EmailComponent } from './email/email.component';
 
 const appRoutes: Routes = [
   {
@@ -55,7 +58,10 @@ const appRoutes: Routes = [
     ContactComponent,
     EmployeeComponent,
     HeaderComponent,
-    CommentsComponent
+    CommentsComponent,
+    MapComponent,
+    InfoComponent,
+    EmailComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +69,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCM9gJcjIfI-mF4N3OtLcHHKL2WQBAmf5M'
+    })
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
