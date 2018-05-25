@@ -20,13 +20,32 @@ export class CommentsComponent implements OnInit {
   commentsCol: AngularFirestoreCollection<Comment>;
   comments: Observable<Comment[]>;
 
+  birthDate: number;
+  addedCommenttext: string;
+  addedName: string;
+  addedStars: number;
+
   constructor(private db: AngularFirestore) { }
 
 
   ngOnInit() {
     this.commentsCol = this.db.collection('comments');
     this.comments = this.commentsCol.valueChanges();
-  console.log(this.db);
+
+    console.log(this.db);
 
   }
+
+  addComment() {
+    this.db.collection('comments').add({
+      age: 2018 - this.birthDate,
+      commenttext: this.addedCommenttext,
+      name: this.addedName,
+      stars: 5
+      })
+      .then(function(docRef) {
+      console.log('Pomyślnie dodano komentarz o Id = ', docRef.id);
+    });
+  }
+
 }
