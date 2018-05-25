@@ -1,3 +1,4 @@
+@import "../sass/modules/typography";
 .container {
 
    img {
@@ -6,7 +7,7 @@
    }
 
    .about-text {
-      font-size: 10px;
+      font-size: $size-stack;
       font-style: bold italic;
       font-family: Raleway, sans-serif;
       p {

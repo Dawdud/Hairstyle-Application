@@ -1,3 +1,7 @@
+@import "../sass/modules/typography.scss";
+@import "../sass/modules/colors.scss";
+
+
 .glyphicon-scissors {
   margin-right:18px;
 }
@@ -5,6 +9,6 @@
   font-weight: bold;
 
   &:hover {
-    color: rgb(39, 241, 194);;
+    color: $navbar-blue;
   }
 }
