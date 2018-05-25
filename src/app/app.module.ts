@@ -23,7 +23,8 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent} from './contact/contact.component';
 import { CommentsComponent } from './comments/comments.component';
 import { EmailComponent } from './email/email.component';
-
+import { PricelistComponent } from './pricelist/pricelist.component';
+import {routes} from './app.router';
 const appRoutes: Routes = [
   {
     path: '',
@@ -57,7 +58,8 @@ const appRoutes: Routes = [
     EmployeeComponent,
     HeaderComponent,
     CommentsComponent,
-    EmailComponent
+    EmailComponent,
+    PricelistComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule, 
+    routes
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
