@@ -22,6 +22,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent} from './contact/contact.component';
 import { CommentsComponent } from './comments/comments.component';
+import { EmailComponent } from './email/email.component';
 
 const appRoutes: Routes = [
   {
@@ -55,7 +56,8 @@ const appRoutes: Routes = [
     ContactComponent,
     EmployeeComponent,
     HeaderComponent,
-    CommentsComponent
+    CommentsComponent,
+    EmailComponent
   ],
   imports: [
     BrowserModule,
