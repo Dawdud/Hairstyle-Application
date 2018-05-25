@@ -1,4 +1,9 @@
+.login-main {
+  height: 55vh;
+}
+
 :host {
+  margin-top: 150px;
   flex-grow: 1;
   display: flex;
   align-items: center;

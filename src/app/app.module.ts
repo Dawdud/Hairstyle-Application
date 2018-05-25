@@ -25,12 +25,14 @@ import { CommentsComponent } from './comments/comments.component';
 import { MapComponent } from './map/map.component';
 import { InfoComponent } from './info/info.component';
 import { EmailComponent } from './email/email.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 const appRoutes: Routes = [
-  {
-    path: '',
-    component: LoginComponent
-  },
+  // {
+  //   path: '',
+  //   component: LoginComponent
+  // },
   {
     path: 'dashboard',
     component: DashboardComponent
@@ -43,6 +45,14 @@ const appRoutes: Routes = [
     path: 'user',
     // canActivate: [AuthGuard],
     component: UserInfoComponent
+  },
+  {
+    path: '',
+    component: HomepageComponent
+  },
+  {
+    path: 'portfolio',
+    component: PortfolioComponent
   }
 ];
 
@@ -61,7 +71,9 @@ const appRoutes: Routes = [
     CommentsComponent,
     MapComponent,
     InfoComponent,
-    EmailComponent
+    EmailComponent,
+    HomepageComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,

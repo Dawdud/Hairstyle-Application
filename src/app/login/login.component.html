@@ -1,6 +1,6 @@
 
 {{checkUserInfo()}}
-<div *ngIf="!authService.isUserEmailLoggedIn">
+<div *ngIf="!authService.isUserEmailLoggedIn" class="login-main">
   <div style="width: 200px;" *ngIf="isNewUser">
 
     <p *ngIf="errorMessage.length > 0" class="text-danger">
