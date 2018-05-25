@@ -3,11 +3,11 @@ h3{
   text-align: center;
 }
 
-div info-box {
+.info-box {
   padding-top: 15px;
   padding-left: 45px;
   justify-content: center;
-  font-style: Raleway;
+  font-family: Raleway, sans-serif;
   font-size: 16px;
 }
 
@@ -15,7 +15,7 @@ div info-box {
      font-weight: bold;
    }
 
-   ul {
+   /*ul {
       list-style-type: none;
       text-align: left;
 
@@ -23,5 +23,5 @@ div info-box {
          font-size: 10px;
          margin-right: 10px;
       }
-   }
+   }*/
 

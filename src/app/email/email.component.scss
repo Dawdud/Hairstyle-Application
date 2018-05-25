@@ -7,19 +7,23 @@ textarea {
 
 
 input[type=submit] {
-  background-color: rgb(39, 241, 194);
-  color:black;
+  background-color: rgb(28, 191, 153);
+  color:#eee;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-family: Raleway;
+  font-weight: bold;
+
 }
 
 input[type=submit]:hover {
   background-color: lightgray;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  transition: all .3s;
+  color: black;
 }
 
 input[type=submit]:active {
