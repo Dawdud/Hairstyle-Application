@@ -1,18 +1,27 @@
-.info-box {
-   padding-top: 15px;
-   padding-left: 45px;
-   text-align: left;
+h3{
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+div info-box {
+  padding-top: 15px;
+  padding-left: 45px;
+  justify-content: center;
+  font-style: Raleway;
+  font-size: 16px;
+}
 
    span {
-      font-weight: bold;
+     font-weight: bold;
    }
 
    ul {
       list-style-type: none;
+      text-align: left;
 
       .glyphicon-ok {
          font-size: 10px;
          margin-right: 10px;
       }
    }
-}
+

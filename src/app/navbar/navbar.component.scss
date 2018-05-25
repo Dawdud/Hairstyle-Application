@@ -1,3 +1,10 @@
 .glyphicon-scissors {
-  margin-right: 15px;
+  margin-right:18px;
+}
+.navbar-brand{
+  font-weight: bold;
+
+  &:hover {
+    color: rgb(39, 241, 194);;
+  }
 }
