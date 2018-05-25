@@ -24,6 +24,7 @@ import { ContactComponent} from './contact/contact.component';
 import { CommentsComponent } from './comments/comments.component';
 import {AngularFirestore} from 'angularfire2/firestore';
 
+
 const appRoutes: Routes = [
   {
     path: '',
@@ -64,7 +65,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
   ],
   providers: [AuthGuard, AuthService, AngularFirestore],
   bootstrap: [AppComponent]
