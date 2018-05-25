@@ -1,7 +1,9 @@
+///<reference path="../../../node_modules/@types/node/index.d.ts"/>
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import {AuthService} from '../auth.service';
 
 
 interface Comment {
@@ -26,7 +28,7 @@ export class CommentsComponent implements OnInit {
   addedName: string;
   addedStars: number;
 
-  constructor(private db: AngularFirestore) { }
+  constructor(private db: AngularFirestore, public authService: AuthService) { }
 
 
   ngOnInit() {
@@ -34,6 +36,7 @@ export class CommentsComponent implements OnInit {
     this.comments = this.commentsCol.valueChanges();
 
     console.log(this.db);
+    console.log(this.authService.isUserEmailLoggedIn);
 
   }
 
@@ -42,11 +45,13 @@ export class CommentsComponent implements OnInit {
       age: 2018 - this.birthDate,
       commenttext: this.addedCommenttext,
       name: this.addedName,
-      stars: 5
+      stars: this.addedStars
       })
       .then(function(docRef) {
       console.log('Pomyślnie dodano komentarz o Id = ', docRef.id);
     });
   }
+
+
 
 }
