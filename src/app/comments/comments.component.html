@@ -6,18 +6,47 @@
   </div>
 </div>
 
-<div class="container table-bordered">
-  <div class="row justify-content-sm-center">
-    <div class="col-sm-3" style="font-family: Corbel">
-      <h3>Janina, lat 52</h3>
-    </div>
-    <div class="col-sm-4" style="text-align: justify">
-      <br>
-      <img src="../../assets/img/starsdemo.png">
+<div class="container">
+  <ul style="list-style-type: none" *ngFor="let comment of comments | async">
+    <li>
+      <div class="row justify-content-sm-center">
+        <div class="col-sm-3" style="font-family: Corbel">
+          <h3>{{comment.name}}, lat {{comment.age}}</h3>
+        </div>
+        <div class="col-sm-4" style="text-align: center">
+          <br>
+          <img src="../../assets/img/{{comment.stars}}stars.png">
+        </div>
+        <div class="col-sm-5" style="font-family: Garamond">
+          <h3>"{{comment.commenttext}}"</h3>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
 
-    </div>
-    <div class="col-sm-5" style="font-family: Garamond">
-      <h3>"Nikt nie zrobił mi tak dobrze jak Pan Radosław z salonu Hairdresser"</h3>
-    </div>
+<div *ngIf="this.authService.isUserEmailLoggedIn" class="container">
+<form (ngSubmit)="addComment()">
+  <div class="form-group col-sm-2">
+    <label for="addName">Twoje imię</label>
+    <input type="text" class="form-control" id="addName" name="addName" required [(ngModel)]="addedName">
   </div>
+
+  <div class="form-group col-sm-2">
+    <label for="birthDate">Rok urodzenia</label>
+    <input type="number" class="form-control" id="birthDate" name="birthDate" required [(ngModel)]="birthDate">
+  </div>
+
+  <div class="form-group col-sm-2">
+    <label for="addStars">Zadowolenie</label>
+    <input type="range" min="0" max="5" step="1" data-popup-enabled="true" class="form-control" id="addStars" name="addStars" required [(ngModel)]="addedStars">
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label for="addComment">Wpisz swój komentarz</label>
+    <input type="text" class="form-control" id="addComment" name="addComment" required [(ngModel)]="addedCommenttext">
+  </div>
+
+  <button type="submit" class="btn btn-info">Dodaj komentarz</button>
+</form>
 </div>
