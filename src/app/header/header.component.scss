@@ -1,9 +1,10 @@
-$main-gray: rgb(214, 206, 206);
-$main-green: rgb(39, 241, 194);
-$btn-green: rgba(28, 128, 104, .5);
+@import "../sass/modules/typography.scss";
+@import "../sass/modules/colors.scss";
+
+
 
 header {
-   background-image: linear-gradient(rgba(0, 0, 0, .7)), url(../../assets/img/head.jpg);
+   background-image: linear-gradient(rgba(0, 0, 0, .5)), url(../../assets/img/head.jpg);
    background-size: cover;
    background-position: center;
    height: 100vh;
@@ -24,18 +25,18 @@ header {
          letter-spacing: .8rem;
          margin-bottom: 10rem;
          font-size: 5rem;
-         font-family: 'Dancing Script', cursive;
+         font-family: 'Raleway', sans-serif;
       }
    }
 
    .btn-main {
       display: inline-block;
-      border: 1px solid $main-green;
+      border: 2px solid $main-green;
       border-radius: 2rem;
       padding: 1rem 2.5rem;
       text-decoration: none;
       color: $main-green;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       transition: all .3s;
 
       &:hover {

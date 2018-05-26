@@ -1,4 +1,7 @@
-$red: rgb(228, 100, 100);
+
+@import "./sass/modules/typography.scss";
+@import "./sass/modules/colors.scss";
+
 
 h1 {
    color: $red;

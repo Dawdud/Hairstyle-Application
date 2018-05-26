@@ -1,3 +1,4 @@
+@import "../sass/modules/typography";
 .container {
 
    img {
@@ -6,16 +7,19 @@
    }
 
    .about-text {
-      font-size: 10px;
-      font-style: italic;
-      font-family: Verdana;
+      font-size: $size-stack;
+      font-style: bold italic;
+      font-family: Raleway, sans-serif;
       p {
-         font-size: 1.8rem;
+        font-size: 2rem;
          line-height: 145%;
          text-align: justify;
+
       }
       h4 {
          text-align: right;
+         font-style: italic;
+
       }
    }
 }

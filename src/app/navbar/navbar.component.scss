@@ -1,3 +1,14 @@
+@import "../sass/modules/typography.scss";
+@import "../sass/modules/colors.scss";
+
+
 .glyphicon-scissors {
-  margin-right: 15px;
+  margin-right:18px;
+}
+.navbar-brand{
+  font-weight: bold;
+
+  &:hover {
+    color: $navbar-blue;
+  }
 }
