@@ -1,0 +1,17 @@
+.info-box {
+   padding-top: 15px;
+   text-align: left;
+
+   span {
+      font-weight: bold;
+   }
+
+   ul {
+      list-style-type: none;
+
+      .glyphicon-ok {
+         font-size: 10px;
+         margin-right: 10px;
+      }
+   }
+}

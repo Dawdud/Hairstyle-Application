@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -23,13 +23,17 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent} from './contact/contact.component';
 import { CommentsComponent } from './comments/comments.component';
 import {AngularFirestore} from 'angularfire2/firestore';
-
+import { MapComponent } from './map/map.component';
+import { InfoComponent } from './info/info.component';
+import { EmailComponent } from './email/email.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 const appRoutes: Routes = [
-  {
-    path: '',
-    component: LoginComponent
-  },
+  // {
+  //   path: '',
+  //   component: LoginComponent
+  // },
   {
     path: 'dashboard',
     component: DashboardComponent
@@ -42,6 +46,14 @@ const appRoutes: Routes = [
     path: 'user',
     // canActivate: [AuthGuard],
     component: UserInfoComponent
+  },
+  {
+    path: '',
+    component: HomepageComponent
+  },
+  {
+    path: 'portfolio',
+    component: PortfolioComponent
   }
 ];
 
@@ -57,7 +69,12 @@ const appRoutes: Routes = [
     ContactComponent,
     EmployeeComponent,
     HeaderComponent,
-    CommentsComponent
+    CommentsComponent,
+    MapComponent,
+    InfoComponent,
+    EmailComponent,
+    HomepageComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +83,9 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCM9gJcjIfI-mF4N3OtLcHHKL2WQBAmf5M'
+    })
   ],
   providers: [AuthGuard, AuthService, AngularFirestore],
   bootstrap: [AppComponent]
