@@ -28,6 +28,7 @@ import { InfoComponent } from './info/info.component';
 import { EmailComponent } from './email/email.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { PricelistComponent } from './pricelist/pricelist.component';
 
 const appRoutes: Routes = [
   // {
@@ -74,7 +75,8 @@ const appRoutes: Routes = [
     InfoComponent,
     EmailComponent,
     HomepageComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    PricelistComponent
   ],
   imports: [
     BrowserModule,
