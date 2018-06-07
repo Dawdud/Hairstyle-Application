@@ -1,11 +1,86 @@
 <app-navbar></app-navbar>
-<div *ngIf="authService.currentUser">
-  <h5 class="text-primary">Informacje o zalogowanym Użytkowniku:</h5>
-  <h4>
-    <strong>UID w bazie:</strong> {{ authService.currentUserId }}
-  </h4>
-  <h4>
-    <strong>Email:</strong> {{ authService.currentUserName }}
-  </h4>
-  <button class="button" (click)="logout()">Wyloguj</button>
+<div class="container">
+  <h2>Witaj {{ authService.currentUserName }}</h2>
+  <div class="row">
+  <h3>Zarezerwuj wizytę</h3>
+    <form (ngSubmit)="makeReservation()">
+      <div class="form-group col-sm-6">
+        <label for="addDate">Dzień</label>
+        <input type="date" class="form-control" id="addDate" name="addData" required [(ngModel)]="addedDate">
+      </div>
+
+      <div class="form-group col-sm-6">
+        <label for="addTime">Godzina</label>
+        <select name="addTime" id="addTime" class="form-control" required [(ngModel)]="addedTime">
+          <option *ngFor="let hour of hours">{{ hour }}</option>
+        </select>
+      </div>
+
+      <div>
+        <button type="submit" class="btn btn-primary">Zarezerwuj</button>
+      </div>
+    </form>
+  </div>
+
+
+
+  <div class="row">
+  <h3>Twoje rezerwacje</h3>
+    <div class="col-sm-6">
+      <table style="width: 100%">
+        <thead>
+          <tr>
+            <th>Dzień</th>
+            <th>Godzina</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reservation of reservations | async">
+            <td>{{ (reservation.name == authService.currentUserName )? reservation.date : null }}</td>
+            <td>{{ (reservation.name == authService.currentUserName )? reservation.time : null }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <h3>Dodaj opinię o salonie</h3>
+    <button [disabled]="!canComment" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Oceń nas</button>
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div *ngIf="canComment">
+            <form (ngSubmit)="addComment()">
+              <div class="form-group col-sm-2">
+                <label for="addName">Twoje imię</label>
+                <input type="text" class="form-control" id="addName" name="addName" required [(ngModel)]="addedName">
+              </div>
+
+              <div class="form-group col-sm-2">
+                <label for="birthDate">Rok urodzenia</label>
+                <input type="number" class="form-control" id="birthDate" name="birthDate" required [(ngModel)]="birthDate">
+              </div>
+
+              <div class="form-group col-sm-2">
+                <label for="addStars">Zadowolenie</label>
+                <input type="range" min="0" max="5" step="1" data-popup-enabled="true" class="form-control" id="addStars" name="addStars" required [(ngModel)]="addedStars">
+              </div>
+
+              <div class="form-group col-sm-6">
+                <label for="addComment">Wpisz swój komentarz</label>
+                <input type="text" class="form-control" id="addComment" name="addComment" required [(ngModel)]="addedCommenttext">
+              </div>
+
+              <button type="submit" class="btn btn-primary">Dodaj komentarz</button>
+            </form>
+          </div>
+          <div *ngIf="!canComment">
+            <h3>Dziękujemy za przesłanie opini :)</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-danger" (click)="logout()">Wyloguj</button>
 </div>

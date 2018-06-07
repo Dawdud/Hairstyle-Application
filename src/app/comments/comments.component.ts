@@ -40,17 +40,17 @@ export class CommentsComponent implements OnInit {
 
   }
 
-  addComment() {
-    this.db.collection('comments').add({
-      age: 2018 - this.birthDate,
-      commenttext: this.addedCommenttext,
-      name: this.addedName,
-      stars: this.addedStars
-      })
-      .then(function(docRef) {
-      console.log('Pomyślnie dodano komentarz o Id = ', docRef.id);
-    });
-  }
+  // addComment() {
+  //   this.db.collection('comments').add({
+  //     age: 2018 - this.birthDate,
+  //     commenttext: this.addedCommenttext,
+  //     name: this.addedName,
+  //     stars: this.addedStars
+  //     })
+  //     .then(function(docRef) {
+  //     console.log('Pomyślnie dodano komentarz o Id = ', docRef.id);
+  //   });
+  // }
 
 
 
