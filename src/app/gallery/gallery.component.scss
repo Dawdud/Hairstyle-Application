@@ -1,0 +1,59 @@
+@import "../sass/modules/typography.scss";
+@import "../sass/modules/colors.scss";
+.container {
+  padding-top: 60px;
+  h1{
+
+    font-family: 'Raleway', sans-serif;
+    font-size: 60px;
+    padding-top: 60px;
+
+
+  }
+  h2{
+
+    padding-bottom: 50px;
+    font-size: 29px;
+    font-family: 'Dancing Script', cursive;
+  }
+  p
+  {
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 1px solid black;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+    span{
+
+      background-image: url("../../assets/img/dust_scratches.png");
+    }
+  }
+  .gallery-border
+  {
+    width: 50%;
+    border-bottom: 2px solid gray;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .row {
+
+    .hairstyle {
+      padding: 30px;
+    }
+    img {
+
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+      transition: all .2s ease-in-out;
+
+      &:hover {
+        -webkit-filter: grayscale(0%);
+        outline: 2px solid gray;
+        outline-offset: -10px;
+        transform: scale(1.1);
+
+      }
+    }
+  }
+}
