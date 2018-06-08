@@ -12,3 +12,16 @@
     color: $navbar-blue;
   }
 }
+.navbar-collapse{
+  font-weight: bold;
+
+  &:hover {
+    color: $navbar-blue;
+  }
+}
+
+.logof {
+  position: absolute;
+  top: -20;
+  z-index: +1;
+}
