@@ -29,6 +29,7 @@ import { EmailComponent } from './email/email.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { PricelistComponent } from './pricelist/pricelist.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 const appRoutes: Routes = [
   // {
@@ -55,7 +56,13 @@ const appRoutes: Routes = [
   {
     path: 'portfolio',
     component: PortfolioComponent
+  },
+  {
+    path: 'gallery',
+    component: GalleryComponent
   }
+
+
 ];
 
 @NgModule({
@@ -76,7 +83,8 @@ const appRoutes: Routes = [
     EmailComponent,
     HomepageComponent,
     PortfolioComponent,
-    PricelistComponent
+    PricelistComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,

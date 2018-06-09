@@ -1,0 +1,38 @@
+.container {
+
+  h2 {
+    padding: 70px 0 30px;
+  }
+
+  .row {
+    text-align: left;
+    margin-bottom: 20px;
+
+    h3 {
+      margin-bottom: 10px;
+    }
+  }
+
+  table {
+    width: 100%;
+    background-color: #fff;
+
+    th, td {
+      border: 1px solid black;
+      text-align: center;
+    }
+  }
+
+  .panel-heading {
+    border: none;
+  }
+
+  .modal-content {
+    padding: 50px;
+    text-align: center;
+
+    button {
+      margin-top: 10px;
+    }
+  }
+}
