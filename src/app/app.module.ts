@@ -30,6 +30,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { PricelistComponent } from './pricelist/pricelist.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { PictureComponent } from './picture/picture.component';
 
 const appRoutes: Routes = [
   // {
@@ -84,7 +85,8 @@ const appRoutes: Routes = [
     HomepageComponent,
     PortfolioComponent,
     PricelistComponent,
-    GalleryComponent
+    GalleryComponent,
+    PictureComponent
   ],
   imports: [
     BrowserModule,

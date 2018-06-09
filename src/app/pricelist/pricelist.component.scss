@@ -1,4 +1,23 @@
-th
-{
+div {
+  h3 {
+    font-size: 48px;
+    font-family: 'Raleway', bold;
+    text-transform: uppercase;  }
+}
+table {
+  th
+  {
     text-align: center;
+    border: none;
+    font-size: 24px;
+    font-family: 'Raleway', cursive;
+    text-transform: uppercase;
+  }
+  td
+  {
+    text-align: center;
+    border: none;
+    font-size: 18px;
+
+  }
 }
