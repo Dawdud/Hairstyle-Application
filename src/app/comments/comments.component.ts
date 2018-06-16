@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import {AuthService} from '../auth.service';
+import {$} from 'protractor';
 
 
 interface Comment {
@@ -23,11 +24,6 @@ export class CommentsComponent implements OnInit {
   commentsCol: AngularFirestoreCollection<Comment>;
   comments: Observable<Comment[]>;
 
-  birthDate: number;
-  addedCommenttext: string;
-  addedName: string;
-  addedStars: number;
-
   constructor(private db: AngularFirestore, public authService: AuthService) { }
 
 
@@ -39,19 +35,6 @@ export class CommentsComponent implements OnInit {
     console.log(this.authService.isUserEmailLoggedIn);
 
   }
-
-  // addComment() {
-  //   this.db.collection('comments').add({
-  //     age: 2018 - this.birthDate,
-  //     commenttext: this.addedCommenttext,
-  //     name: this.addedName,
-  //     stars: this.addedStars
-  //     })
-  //     .then(function(docRef) {
-  //     console.log('Pomyślnie dodano komentarz o Id = ', docRef.id);
-  //   });
-  // }
-
 
 
 }
