@@ -39,114 +39,70 @@
   <div class="row">
   <h3>Twoje rezerwacje</h3>
     <div class="col-sm-6">
-      <table style="width: 100%">
+      <table style="width: 100%" class="table">
         <thead>
           <tr>
             <th>Dzień</th>
             <th>Godzina</th>
             <th>Fryzjer</th>
+            <th>Odwołaj</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let reservation of reservations | async">
+          <tr *ngFor="let reservation of reservationsWithId | async">
             <td>{{ (reservation.name == authService.currentUserName )? reservation.date : null }}</td>
             <td>{{ (reservation.name == authService.currentUserName )? reservation.time : null }}</td>
             <td>{{ (reservation.name == authService.currentUserName )? reservation.employee : null }}</td>
+            <td><i class="glyphicon glyphicon-remove" (click)="delete(reservation)"></i></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 
-
-  <div *ngIf="this.authService.isUserEmailLoggedIn" class="container">
-    <form (ngSubmit)="addComment()">
-      <div class="form-group col-sm-2">
-        <label for="addName">Twoje imię</label>
-        <input type="text" class="form-control" id="addName" name="addName" required [(ngModel)]="addedName">
-      </div>
-
-      <div class="form-group col-sm-2">
-        <label for="birthDate">Rok urodzenia</label>
-        <input type="number" class="form-control" id="birthDate" name="birthDate" required [(ngModel)]="birthDate">
-      </div>
-
-      <div class="form-group col-sm-2 stars">
-        <span style="font-weight: 700">Twoja ocena</span>
-        <BR>
-        <input class="star star-5" id="star-5" type="radio" value="5" name="star" [(ngModel)]="addedStars"/>
-        <label class="star star-5" for="star-5"></label>
-        <input class="star star-4" id="star-4" type="radio" value="4" name="star" [(ngModel)]="addedStars"/>
-        <label class="star star-4" for="star-4"></label>
-        <input class="star star-3" id="star-3" type="radio" value="3" name="star" [(ngModel)]="addedStars"/>
-        <label class="star star-3" for="star-3"></label>
-        <input class="star star-2" id="star-2" type="radio" value="2" name="star" [(ngModel)]="addedStars"/>
-        <label class="star star-2" for="star-2"></label>
-        <input class="star star-1" id="star-1" type="radio" value="1" name="star" [(ngModel)]="addedStars"/>
-        <label class="star star-1" for="star-1"></label>
-      </div>
-
-      <!--<div class="form-group col-sm-2">-->
-      <!--<label for="addStars">Zadowolenie</label>-->
-      <!--<input type="range" min="0" max="5" step="1" data-popup-enabled="true" class="form-control" id="addStars" name="addStars" required [(ngModel)]="addedStars">-->
-      <!--</div>-->
-
-      <div class="form-group col-sm-6">
-        <label for="addComment">Wpisz swój komentarz</label>
-        <input type="text" class="form-control" id="addComment" name="addComment" required [(ngModel)]="addedCommenttext">
-      </div>
-
-      <button type="submit" class="btn btn-info center-block">Dodaj komentarz</button>
-    </form>
-  </div>
-
   <div class="row">
     <h3>Dodaj opinię o salonie</h3>
-    <button [disabled]="!canComment" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Oceń nas</button>
-    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div *ngIf="canComment">
-            <form (ngSubmit)="addComment()">
-              <div class="form-group col-sm-2">
-                <label for="addName">Twoje imię</label>
-                <input type="text" class="form-control" id="addName" name="addName" required [(ngModel)]="addedName">
-              </div>
 
-              <div class="form-group col-sm-2">
-                <label for="birthDate">Rok urodzenia</label>
-                <input type="number" class="form-control" id="birthDate" name="birthDate" required [(ngModel)]="birthDate">
-              </div>
-
-              <div class="form-group col-sm-2 stars">
-                <span style="font-weight: 700">Twoja ocena</span>
-                <BR>
-                <input class="star star-5" id="star-5" type="radio" value="5" name="star" [(ngModel)]="addedStars"/>
-                <label class="star star-5" for="star-5"></label>
-                <input class="star star-4" id="star-4" type="radio" value="4" name="star" [(ngModel)]="addedStars"/>
-                <label class="star star-4" for="star-4"></label>
-                <input class="star star-3" id="star-3" type="radio" value="3" name="star" [(ngModel)]="addedStars"/>
-                <label class="star star-3" for="star-3"></label>
-                <input class="star star-2" id="star-2" type="radio" value="2" name="star" [(ngModel)]="addedStars"/>
-                <label class="star star-2" for="star-2"></label>
-                <input class="star star-1" id="star-1" type="radio" value="1" name="star" [(ngModel)]="addedStars"/>
-                <label class="star star-1" for="star-1"></label>
-              </div>
-
-              <div class="form-group col-sm-6">
-                <label for="addComment">Wpisz swój komentarz</label>
-                <input type="text" class="form-control" id="addComment" name="addComment" required [(ngModel)]="addedCommenttext">
-              </div>
-
-              <button type="submit" class="btn btn-primary">Dodaj komentarz</button>
-            </form>
-          </div>
-          <div *ngIf="!canComment">
-            <h3>Dziękujemy za przesłanie opini :)</h3>
-          </div>
+    <div class="container">
+      <form (ngSubmit)="addComment()">
+        <div class="form-group col-sm-2">
+          <label for="addName">Twoje imię</label>
+          <input type="text" class="form-control" id="addName" name="addName" required [(ngModel)]="addedName">
         </div>
-      </div>
+
+        <div class="form-group col-sm-2">
+          <label for="birthDate">Rok urodzenia</label>
+          <input type="number" class="form-control" id="birthDate" name="birthDate" required [(ngModel)]="birthDate">
+        </div>
+
+        <div class="form-group col-sm-2 stars">
+          <span style="font-weight: 700">Twoja ocena</span>
+          <BR>
+          <input class="star star-5" id="star-5" type="radio" value="5" name="star" [(ngModel)]="addedStars"/>
+          <label class="star star-5" for="star-5"></label>
+          <input class="star star-4" id="star-4" type="radio" value="4" name="star" [(ngModel)]="addedStars"/>
+          <label class="star star-4" for="star-4"></label>
+          <input class="star star-3" id="star-3" type="radio" value="3" name="star" [(ngModel)]="addedStars"/>
+          <label class="star star-3" for="star-3"></label>
+          <input class="star star-2" id="star-2" type="radio" value="2" name="star" [(ngModel)]="addedStars"/>
+          <label class="star star-2" for="star-2"></label>
+          <input class="star star-1" id="star-1" type="radio" value="1" name="star" [(ngModel)]="addedStars"/>
+          <label class="star star-1" for="star-1"></label>
+        </div>
+
+        <div class="form-group col-sm-6">
+          <label for="addComment">Wpisz swój komentarz</label>
+          <input type="text" class="form-control" id="addComment" name="addComment" required [(ngModel)]="addedCommenttext">
+        </div>
+
+        <button [disabled]="!canComment" type="submit" class="btn btn-info center-block">Dodaj komentarz</button>
+      </form>
+    </div>
+
+    <div *ngIf="commentInfo">
+      <p>Dziękujemy za przesłanie opini :)</p>
     </div>
   </div>
+
   <button class="btn btn-danger" (click)="logout()">Wyloguj</button>
 </div>
