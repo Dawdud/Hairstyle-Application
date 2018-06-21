@@ -20,6 +20,16 @@
     th, td {
       border: 1px solid black;
       text-align: center;
+
+      .glyphicon-remove {
+         color: red;
+        transition: all .3s;
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.4);
+        }
+      }
     }
   }
 
