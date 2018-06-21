@@ -8,6 +8,7 @@ interface Reservation {
   name: string;
   date: string;
   time: string;
+  employee: string;
 }
 
 @Component({
@@ -23,7 +24,12 @@ export class UserInfoComponent implements OnInit {
     '16:00', '17:00', '18:00', '19:00'
   ];
 
+  employees: string[] = [
+    'Damian', 'Daniel', 'Dawid', 'Radek'
+    ];
+
   // reservation
+  addedEmployee: string;
   addedDate: string;
   addedTime: string;
 
@@ -53,11 +59,13 @@ export class UserInfoComponent implements OnInit {
     this.db.collection('reservations').add({
       name: this.authService.currentUserName,
       date: this.addedDate,
-      time: this.addedTime
+      time: this.addedTime,
+      employee: this.addedEmployee
     });
 
     this.addedDate = null;
     this.addedTime = null;
+    this.addedEmployee = null;
 
     this.canComment = true;
   }

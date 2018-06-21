@@ -8,12 +8,20 @@
   <div class="row">
   <h3>Zarezerwuj wizytę</h3>
     <form (ngSubmit)="makeReservation()">
-      <div class="form-group col-sm-6">
+
+      <div class="form-group col-sm-4">
+        <label for="addEmployee">Fryzjer</label>
+        <select name="addEmployee" id="addEmployee" class="form-control" required [(ngModel)]="addedEmployee">
+          <option *ngFor="let employee of employees">{{ employee }}</option>
+        </select>
+      </div>
+
+      <div class="form-group col-sm-4">
         <label for="addDate">Dzień</label>
         <input type="date" class="form-control" id="addDate" name="addData" required [(ngModel)]="addedDate">
       </div>
 
-      <div class="form-group col-sm-6">
+      <div class="form-group col-sm-4">
         <label for="addTime">Godzina</label>
         <select name="addTime" id="addTime" class="form-control" required [(ngModel)]="addedTime">
           <option *ngFor="let hour of hours">{{ hour }}</option>
@@ -36,12 +44,14 @@
           <tr>
             <th>Dzień</th>
             <th>Godzina</th>
+            <th>Fryzjer</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let reservation of reservations | async">
             <td>{{ (reservation.name == authService.currentUserName )? reservation.date : null }}</td>
             <td>{{ (reservation.name == authService.currentUserName )? reservation.time : null }}</td>
+            <td>{{ (reservation.name == authService.currentUserName )? reservation.employee : null }}</td>
           </tr>
         </tbody>
       </table>
