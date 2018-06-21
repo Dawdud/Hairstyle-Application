@@ -2,12 +2,22 @@ import { Injectable } from '@angular/core';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {Router} from '@angular/router';
 import {AngularFireDatabase} from 'angularfire2/database';
+import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 
 import * as firebase from 'firebase';
+
+interface UserData {
+  name: string;
+  surname: string;
+  birthDate: number;
+  telephone: number;
+}
 
 @Injectable()
 export class AuthService {
   authState: any = null;
+
+  name: string;
 
   constructor(private afAuth: AngularFireAuth, private router: Router, private db: AngularFireDatabase) {
     this.afAuth.authState.subscribe((auth) => {
@@ -44,6 +54,7 @@ export class AuthService {
       .then((user) => {
         this.authState = user;
       });
+
   }
 
   loginWithEmail(email: string, password: string) {
@@ -64,7 +75,7 @@ export class AuthService {
   }
 
   resetPassword(email: string) {
-    var auth = firebase.auth();
+    let auth = firebase.auth();
 
     return auth.sendPasswordResetEmail(email)
       .then(() => console.log('email sent'))

@@ -30,6 +30,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { PricelistComponent } from './pricelist/pricelist.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { AdminInfoComponent } from './admin-info/admin-info.component';
 
 const appRoutes: Routes = [
   // {
@@ -60,8 +61,11 @@ const appRoutes: Routes = [
   {
     path: 'gallery',
     component: GalleryComponent
+  },
+  {
+    path: 'admin',
+    component: AdminInfoComponent
   }
-
 
 ];
 
@@ -84,7 +88,8 @@ const appRoutes: Routes = [
     HomepageComponent,
     PortfolioComponent,
     PricelistComponent,
-    GalleryComponent
+    GalleryComponent,
+    AdminInfoComponent
   ],
   imports: [
     BrowserModule,
