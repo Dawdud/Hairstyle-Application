@@ -31,7 +31,6 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { PricelistComponent } from './pricelist/pricelist.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AdminInfoComponent } from './admin-info/admin-info.component';
-import { PictureComponent } from './picture/picture.component';
 
 const appRoutes: Routes = [
   // {
@@ -91,7 +90,6 @@ const appRoutes: Routes = [
     PricelistComponent,
     GalleryComponent,
     AdminInfoComponent
-    PictureComponent
   ],
   imports: [
     BrowserModule,
