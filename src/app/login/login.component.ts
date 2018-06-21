@@ -45,7 +45,11 @@ export class LoginComponent implements OnInit {
     if (this.validateForm(this.email, this.password)) {
       this.authService.signUpWithEmail(this.email, this.password)
         .then(() => {
-          this.router.navigate(['/user']);
+          if (this.email === 'admin@hairdresser.pl') {
+            this.router.navigate(['/admin']);
+          } else {
+            this.router.navigate(['/user']);
+          }
         }).catch(_error => {
         this.error = _error;
         this.router.navigate(['/']);
@@ -58,8 +62,13 @@ export class LoginComponent implements OnInit {
 
     if (this.validateForm(this.email, this.password)) {
       this.authService.loginWithEmail(this.email, this.password)
-        .then(() => this.router.navigate(['/user']))
-        .catch(_error => {
+        .then(() => {
+          if (this.email === 'admin@hairdresser.pl') {
+            this.router.navigate(['/admin']);
+          } else {
+            this.router.navigate(['/user']);
+          }
+        }).catch(_error => {
           this.error = _error;
           this.router.navigate(['/']);
         });
