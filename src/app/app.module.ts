@@ -54,12 +54,12 @@ const appRoutes: Routes = [
     path: '',
     component: HomepageComponent
   },
+  // {
+  //   path: 'portfolio',
+  //   component: PortfolioComponent
+  // },
   {
-    path: 'portfolio',
-    component: PortfolioComponent
-  },
-  {
-    path: 'gallery',
+    path: 'gallery/:id/:name',
     component: GalleryComponent
   },
   {
