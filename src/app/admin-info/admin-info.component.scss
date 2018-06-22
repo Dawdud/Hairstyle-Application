@@ -1,7 +1,11 @@
 @import "../sass/modules/mixins";
 
+.wrapper {
+  height: 75vh;
+}
+
 .admin-container {
-  padding-top: 50px
+  padding-top: 50px;
 }
 
 .table-box {

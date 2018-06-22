@@ -25,7 +25,7 @@
         </ng-template>
       </ul>
       <ul *ngIf="(!showNavbar) && (authService.authState !== null)" class="nav navbar-nav navbar-right">
-        <li><a href="#">wyloguj</a></li>
+        <li><a href="#" (click)="logout()">Wyloguj</a></li>
       </ul>
     </div>
   </div>
