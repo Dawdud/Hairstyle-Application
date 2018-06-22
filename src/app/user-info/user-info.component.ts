@@ -68,10 +68,6 @@ export class UserInfoComponent implements OnInit {
     });
   }
 
-  logout() {
-    this.authService.signOut();
-  }
-
   makeReservation() {
     this.db.collection('reservations').add({
       name: this.authService.currentUserName,

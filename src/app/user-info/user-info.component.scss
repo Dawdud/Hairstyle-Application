@@ -1,3 +1,5 @@
+@import "../sass/modules/mixins";
+
 .container {
 
   h2 {
@@ -13,25 +15,7 @@
     }
   }
 
-  table {
-    width: 100%;
-    background-color: #fff;
-
-    th, td {
-      border: 1px solid black;
-      text-align: center;
-
-      .glyphicon-remove {
-         color: red;
-        transition: all .3s;
-
-        &:hover {
-          cursor: pointer;
-          transform: scale(1.4);
-        }
-      }
-    }
-  }
+  @include table();
 
   .panel-heading {
     border: none;

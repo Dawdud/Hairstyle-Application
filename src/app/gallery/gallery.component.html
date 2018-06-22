@@ -1,37 +1,17 @@
 <app-navbar></app-navbar>
 
 <div class="container">
-    <h1>Galeria</h1>
-    <h2>Nasze kolekcje</h2>
+    <h1>Portfolio</h1>
+    <h2>{{ employee.name }}</h2>
     <p><span class="glyphicon glyphicon-scissors"></span></p>
     <div class="row">
 
-      <div class="col-lg-4 hairstyle">
-        <img src="../../assets/img/style1.jpg" class="img-fluid">
-      </div>
-      <div class="col-lg-4 hairstyle">
-        <img src="../../assets/img/style2.jpg" class="img-fluid">
-      </div>
-      <div class="col-lg-4 hairstyle">
-        <img src="../../assets/img/style3.jpg" class="img-fluid">
+      <div *ngFor="let photo of photos">
+        <div class="col-lg-4 hairstyle">
+          <img src="../../assets/img/{{ employee.id }}/style{{ photo }}.jpg" class="img-fluid">
+        </div>
       </div>
 
-      <div class="col-lg-4 hairstyle">
-        <img src="../../assets/img/style4.jpg" class="img-fluid">
-      </div>
-      <div class="col-lg-4 hairstyle">
-        <img src="../../assets/img/style6.jpg" class="img-fluid">
-      </div>
-
-      <div class="col-lg-4 hairstyle">
-        <img src="../../assets/img/style7.jpg" class="img-fluid">
-      </div>
-      <div class="col-lg-4 hairstyle">
-        <img src="../../assets/img/style8.jpg" class="img-fluid">
-      </div>
-      <div class="col-lg-4 hairstyle">
-        <img src="../../assets/img/style9.jpg" class="img-fluid">
-      </div>
     </div>
 
   </div>

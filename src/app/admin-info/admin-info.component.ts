@@ -52,10 +52,6 @@ export class AdminInfoComponent implements OnInit {
       });
   }
 
-  logout() {
-    this.authService.signOut();
-  }
-
   delete(message) {
     this.db.collection('messages').doc(message.id).delete();
   }
