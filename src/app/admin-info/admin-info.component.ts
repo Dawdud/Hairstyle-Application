@@ -33,9 +33,6 @@ export class AdminInfoComponent implements OnInit {
 
   messagesWid: Observable<any>;
 
-
-
-
   constructor(private db: AngularFirestore, public authService: AuthService) { }
 
   ngOnInit() {
@@ -53,8 +50,6 @@ export class AdminInfoComponent implements OnInit {
           return { id, ...data };
         });
       });
-
-
   }
 
   logout() {

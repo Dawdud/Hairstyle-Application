@@ -22,4 +22,9 @@ describe('AboutComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it("simple test should add 2 and 2 ;)", function() {
+    expect(2 + 2).toBe(4);
+  });
+
 });

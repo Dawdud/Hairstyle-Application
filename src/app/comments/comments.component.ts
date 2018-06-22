@@ -61,12 +61,9 @@ export class CommentsComponent implements OnInit {
     console.log(this.authService.isUserEmailLoggedIn);
 
     function pickLetter() {
-      let letter = '';
-      let possible = 'ALMRS';
-      letter = possible.charAt(Math.floor(Math.random() * possible.length));
-      return letter;
+      const possible = 'ALMRS';
+      return possible.charAt(Math.floor(Math.random() * possible.length));
     }
-
 
   }
 

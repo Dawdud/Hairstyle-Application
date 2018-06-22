@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CommentsComponent } from './comments.component';
+import {AngularFirestore} from 'angularfire2/firestore';
 
 describe('CommentsComponent', () => {
   let component: CommentsComponent;
@@ -8,7 +9,8 @@ describe('CommentsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CommentsComponent ]
+      declarations: [ CommentsComponent ],
+      providers: [ AngularFirestore ]
     })
     .compileComponents();
   }));
@@ -19,7 +21,9 @@ describe('CommentsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be A, L, M, R or S', () => {
+    const result = this.pickLetter();
+    const goodResult = (result === 'A' || result === 'L' || result === 'M' || result === 'R' || result === 'S');
+    expect(goodResult).toBe(true);
   });
 });
