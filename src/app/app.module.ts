@@ -17,7 +17,7 @@ import {environment} from '../environments/environment';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AuthService} from './auth.service';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent} from './contact/contact.component';
@@ -31,6 +31,7 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { PricelistComponent } from './pricelist/pricelist.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AdminInfoComponent } from './admin-info/admin-info.component';
+import { ForbiddenValidatorDirective } from './forbidden-validator.directive';
 
 const appRoutes: Routes = [
   // {
@@ -89,11 +90,13 @@ const appRoutes: Routes = [
     PortfolioComponent,
     PricelistComponent,
     GalleryComponent,
-    AdminInfoComponent
+    AdminInfoComponent,
+    ForbiddenValidatorDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,

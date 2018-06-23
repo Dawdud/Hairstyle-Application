@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-sm-center">
-    <div class="col-sm-8" style="font-family: Corbel; color: #440066">
+    <div class="col-sm-8" style="font-family: Raleway, sans-serif; color: #1cbf99">
       <h2>Przykładowe opinie naszych klientów: </h2>
     </div>
   </div>
@@ -10,14 +10,14 @@
   <ul style="list-style-type: none" *ngFor="let comment of quer | async">
     <li>
       <div class="row justify-content-sm-center">
-        <div class="col-sm-3" style="font-family: Corbel">
+        <div class="col-sm-3" style="font-family: Raleway, sans-serif">
           <h3>{{comment.name}}, lat {{comment.age}}</h3>
         </div>
         <div class="col-sm-4" style="text-align: center">
           <br>
           <img src="../../assets/img/{{comment.stars}}stars.png">
         </div>
-        <div class="col-sm-5" style="font-family: Garamond">
+        <div class="col-sm-5" style="font-family: Raleway, sans-serif">
           <h3>"{{comment.commenttext}}"</h3>
         </div>
       </div>
