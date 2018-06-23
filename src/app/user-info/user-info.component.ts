@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterContentInit, Component, OnInit} from '@angular/core';
 import { AuthService } from '../auth.service';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
@@ -16,7 +16,7 @@ interface Reservation {
   templateUrl: './user-info.component.html',
   styleUrls: ['./user-info.component.scss']
 })
-export class UserInfoComponent implements OnInit {
+export class UserInfoComponent implements OnInit, AfterContentInit{
 
   dateNow = new Date();
   year = this.dateNow.getFullYear();
@@ -69,12 +69,15 @@ export class UserInfoComponent implements OnInit {
       });
     });
 
-    this.reservationCol.snapshotChanges().subscribe(() => {
-      console.log('ready z ngOnInit');
-    });
+    // this.reservationCol.snapshotChanges().subscribe(() => {
+    //   console.log('ready z ngOnInit');
+    // });
 
+    // this.canCommentF();
+
+  }
+  ngAfterContentInit() {
     this.canCommentF();
-
   }
 
   makeReservation() {
@@ -89,7 +92,7 @@ export class UserInfoComponent implements OnInit {
     this.addedTime = null;
     this.addedEmployee = null;
 
-    this.canComment = true;
+    // this.canComment = true;
   }
 
   addComment() {
@@ -111,6 +114,7 @@ export class UserInfoComponent implements OnInit {
   delete(reservation) {
     // console.log(reservation);
     this.db.collection('reservations').doc(reservation.id).delete();
+    this.canComment = !this.canComment;
   }
 
   canCommentF() {
@@ -124,9 +128,12 @@ export class UserInfoComponent implements OnInit {
         console.log('data dzisiejsza = ' + dateFromTd);
         if (dateFromDb < dateFromTd) {
           console.log('znalazlem mniejsza');
+          this.canComment = true;
+          break;
           // this.addComment();
         } else {
-          console.log('ni chuja');
+          console.log('znalazłem większą');
+          this.canComment = false;
         }
       }
     });

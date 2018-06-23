@@ -22,7 +22,7 @@
           <tbody>
           <tr *ngFor="let reservation of reservationsWithId | async">
             <td>{{ reservation.name }}</td>
-            <td>{{ reservation.date }}</td>
+            <td>{{ reservation.date | date: 'yyyy-MM-dd'}}</td>
             <td>{{ reservation.time }}</td>
             <td>{{ reservation.employee }}</td>
             <td><i class="glyphicon glyphicon-remove" (click)="deleteR(reservation)"></i></td>

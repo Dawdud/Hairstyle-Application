@@ -94,7 +94,7 @@
           <input type="text" class="form-control" id="addComment" name="addComment" required [(ngModel)]="addedCommenttext">
         </div>
 
-        <button type="submit" class="btn btn-info center-block" >Dodaj komentarz</button>
+        <button [disabled]="!canComment" type="submit" class="btn btn-info center-block" >Dodaj komentarz</button>
 
       </form>
     </div>
