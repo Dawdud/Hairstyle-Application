@@ -66,6 +66,10 @@ export class UserInfoComponent implements OnInit {
         return {id, ...data};
       });
     });
+    this.reservationCol.snapshotChanges().subscribe(() => {
+      console.log('ready');
+    });
+
   }
 
   makeReservation() {
@@ -103,5 +107,9 @@ export class UserInfoComponent implements OnInit {
     // console.log(reservation);
     this.db.collection('reservations').doc(reservation.id).delete();
   }
+
+  // canComment(){
+  //
+  // }
 
 }

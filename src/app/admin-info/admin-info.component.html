@@ -16,14 +16,16 @@
             <th>Dzień</th>
             <th style="width: 150px">Godzina</th>
             <th>Fryzjer</th>
+            <th>Odwołaj</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let reservation of reservations | async">
+          <tr *ngFor="let reservation of reservationsWithId | async">
             <td>{{ reservation.name }}</td>
             <td>{{ reservation.date }}</td>
             <td>{{ reservation.time }}</td>
             <td>{{ reservation.employee }}</td>
+            <td><i class="glyphicon glyphicon-remove" (click)="deleteR(reservation)"></i></td>
           </tr>
           </tbody>
         </table>
@@ -45,7 +47,7 @@
             <td>{{ message.from }}</td>
             <td>{{ message.email }}</td>
             <td class="td-dluga">{{ message.message }}</td>
-            <td class="deleteTd"><i class="glyphicon glyphicon-remove" (click)="delete(message)"></i></td>
+            <td class="deleteTd"><i class="glyphicon glyphicon-remove" (click)="deleteM(message)"></i></td>
           </tr>
           </tbody>
         </table>

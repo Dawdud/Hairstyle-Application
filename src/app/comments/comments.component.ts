@@ -38,7 +38,7 @@ export class CommentsComponent implements OnInit {
     this.commentsCol = this.db.collection('comments');
     this.comments = this.commentsCol.valueChanges();
 
-    this.rand = pickLetter();
+    this.rand = this.pickLetter();
     console.log(this.rand);
 
     this.querCol = this.db.collection('comments', ref => {
@@ -60,12 +60,10 @@ export class CommentsComponent implements OnInit {
     console.log('czy user jest zalogowany?:');
     console.log(this.authService.isUserEmailLoggedIn);
 
-    function pickLetter() {
-      const possible = 'ALMRS';
-      return possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-
   }
 
-
+  pickLetter() {
+    const possible = 'ALMRS';
+    return possible.charAt(Math.floor(Math.random() * possible.length));
+  }
 }
