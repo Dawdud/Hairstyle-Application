@@ -1,19 +1,33 @@
 <div class="row">
   <div *ngIf="!this.messageSent" class="contact-form col-xs-12">
-    <form (ngSubmit)="addMessage()">
-      <h3>Napisz do nas</h3>
-      <div class="form-group ">
-        <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Imię" required [(ngModel)]="messageName">
-      </div>
-      <div class="form-group ">
-        <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email" required [(ngModel)]="messageEmail">
-      </div>
-      <div class="form-group">
-        <textarea class="form-control" rows="5" id="inputMessage" name="inpputMessage" placeholder="Treść wiadomości" required [(ngModel)]="messageText"></textarea>
-      </div>
-      <button type="submit" class="btn btn-info">Wyślij</button>
-    </form>
-  </div>
+      <form #msgForm="ngForm" (ngSubmit)="addMessage()">
+        <h3>Napisz do nas</h3>
+        <div class="form-group ">
+        <input type="text" class="form-control" #inputName="ngModel" id="inputName" name="inputName" placeholder="Imię" required minlength="2" appForbiddenName="Daniel" [(ngModel)]="messageName">
+        <div *ngIf="inputName.invalid && (inputName.dirty || inputName.touched)" class="text-danger">
+          <div *ngIf="inputName?.errors.required">Imię jest wymagane.</div>
+          <div *ngIf="inputName?.errors.minlength">Imię nie może być krótsze niż 2 znaki.</div>
+          <div *ngIf="inputName?.errors.forbiddenName">Nie możesz się nazywać Daniel.</div>
+        </div>
+        </div>
+        <div class="form-group ">
+          <input type="email" class="form-control" #inputEmail="ngModel" id="inputEmail" name="inputEmail" placeholder="Email" required email [(ngModel)]="messageEmail">
+          <div *ngIf="inputEmail.invalid && (inputEmail.dirty || inputEmail.touched)" class="text-danger">
+            <div *ngIf="inputEmail?.errors.required">Email jest wymagany.</div>
+            <div *ngIf="!inputEmail?.errors.required && inputEmail?.errors.email">To nie jest poprawny email.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" rows="5"  #inputMessage="ngModel" id="inputMessage" name="inpputMessage" placeholder="Treść wiadomości" required minlength="10" [(ngModel)]="messageText"></textarea>
+          <div *ngIf="inputMessage.invalid && (inputMessage.dirty || inputMessage.touched)" class="text-danger">
+            <div *ngIf="inputMessage?.errors.required">Wiadomość jest wymagana.</div>
+            <div *ngIf="inputMessage?.errors.minlength">Wiadomość nie może być krótsze niż 10 znaków.</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-info" [disabled]="msgForm.invalid">Wyślij</button>
+        <button type="button" class="btn btn-default" (click)="msgForm.resetForm({})">Anuluj</button>
+      </form>
+    </div>
   <div *ngIf="this.messageSent" class="contact-form col-xs-12">
     <h1>Wiadomość wysłana, dziękujemy!</h1>
   </div>

@@ -15,10 +15,11 @@ export class EmailComponent implements OnInit {
 
   messageSent: boolean;
 
-  constructor(private db: AngularFirestore, public authService: AuthService) { }
+  constructor(private db: AngularFirestore, public authService: AuthService) {
+  }
 
   ngOnInit() {
-    }
+  }
 
   addMessage() {
     this.db.collection('messages').add({
