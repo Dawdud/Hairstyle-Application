@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../auth.service';
-import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
+import { AuthService } from '../auth.service';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -18,21 +18,22 @@ interface Reservation {
 })
 export class UserInfoComponent implements OnInit {
 
-  year = new Date().getFullYear();
-  month = new Date().getMonth();
-  day = new Date().getDate();
+  dateNow = new Date();
+  year = this.dateNow.getFullYear();
+  month = this.dateNow.getMonth();
+  day = this.dateNow.getDate();
 
   today = `${this.year}-${this.month}-${this.day}`;
 
   hours: string[] = [
-   '8:00', '9:00', '10:00', '11:00',
+    '8:00', '9:00', '10:00', '11:00',
     '12:00', '13:00', '14:00', '15:00',
     '16:00', '17:00', '18:00', '19:00'
   ];
 
   employees: string[] = [
     'Damian', 'Daniel', 'Dawid', 'Radek'
-    ];
+  ];
 
   // reservation
   addedEmployee: string;
@@ -53,7 +54,8 @@ export class UserInfoComponent implements OnInit {
   commentInfo = false;
   canComment = false;
 
-  constructor(private db: AngularFirestore, public authService: AuthService) { }
+  constructor(private db: AngularFirestore, public authService: AuthService) {
+  }
 
   ngOnInit() {
     this.reservationCol = this.db.collection('reservations');
@@ -66,16 +68,19 @@ export class UserInfoComponent implements OnInit {
         return {id, ...data};
       });
     });
+
     this.reservationCol.snapshotChanges().subscribe(() => {
-      console.log('ready');
+      console.log('ready z ngOnInit');
     });
+
+    this.canCommentF();
 
   }
 
   makeReservation() {
     this.db.collection('reservations').add({
       name: this.authService.currentUserName,
-      date: this.addedDate,
+      date: new Date(this.addedDate),
       time: this.addedTime,
       employee: this.addedEmployee
     });
@@ -108,8 +113,22 @@ export class UserInfoComponent implements OnInit {
     this.db.collection('reservations').doc(reservation.id).delete();
   }
 
-  // canComment(){
-  //
-  // }
+  canCommentF() {
+    console.log('funkcja canComment uruchomiona');
+    this.reservationsWithId.subscribe(x => {
+      for (const a of x) {
+        const dateFromDb = a.date.valueOf();
+        const dateFromTd = new Date().getTime();
 
+        console.log('data z bazy = ' + dateFromDb);
+        console.log('data dzisiejsza = ' + dateFromTd);
+        if (dateFromDb < dateFromTd) {
+          console.log('znalazlem mniejsza');
+          // this.addComment();
+        } else {
+          console.log('ni chuja');
+        }
+      }
+    });
+  }
 }
