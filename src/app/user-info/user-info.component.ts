@@ -16,7 +16,7 @@ interface Reservation {
   templateUrl: './user-info.component.html',
   styleUrls: ['./user-info.component.scss']
 })
-export class UserInfoComponent implements OnInit, AfterContentInit{
+export class UserInfoComponent implements OnInit, AfterContentInit {
 
   dateNow = new Date();
   year = this.dateNow.getFullYear();
@@ -60,6 +60,8 @@ export class UserInfoComponent implements OnInit, AfterContentInit{
   ngOnInit() {
     this.reservationCol = this.db.collection('reservations');
     this.reservations = this.reservationCol.valueChanges();
+    const query = this.reservationCol.ref.where('name', '==', this.authService.currentUserName);
+    console.log(query);
 
     this.reservationsWithId = this.reservationCol.snapshotChanges().map(actions => {
       return actions.map(a => {
@@ -69,11 +71,6 @@ export class UserInfoComponent implements OnInit, AfterContentInit{
       });
     });
 
-    // this.reservationCol.snapshotChanges().subscribe(() => {
-    //   console.log('ready z ngOnInit');
-    // });
-
-    // this.canCommentF();
 
   }
   ngAfterContentInit() {
@@ -120,7 +117,10 @@ export class UserInfoComponent implements OnInit, AfterContentInit{
   canCommentF() {
     console.log('funkcja canComment uruchomiona');
     this.reservationsWithId.subscribe(x => {
+      console.log('this.authService.currentUserName = ' + this.authService.currentUserName);
       for (const a of x) {
+        if (a.name.valueOf() === this.authService.currentUserName) {
+          console.log('user name matched = ' + a.name.valueOf());
         const dateFromDb = a.date.valueOf();
         const dateFromTd = new Date().getTime();
 
@@ -136,6 +136,8 @@ export class UserInfoComponent implements OnInit, AfterContentInit{
           this.canComment = false;
         }
       }
+    }
     });
   }
+
 }
