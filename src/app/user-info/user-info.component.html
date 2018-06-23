@@ -49,7 +49,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let reservation of reservationsWithId | async">
-            <td>{{ (reservation.name == authService.currentUserName )? reservation.date : null }}</td>
+            <td>{{ (reservation.name == authService.currentUserName )? (reservation.date | date: 'yyyy-MM-dd' ) : null }}</td>
             <td>{{ (reservation.name == authService.currentUserName )? reservation.time : null }}</td>
             <td>{{ (reservation.name == authService.currentUserName )? reservation.employee : null }}</td>
             <td><i class="glyphicon glyphicon-remove" (click)="delete(reservation)"></i></td>
@@ -94,7 +94,8 @@
           <input type="text" class="form-control" id="addComment" name="addComment" required [(ngModel)]="addedCommenttext">
         </div>
 
-        <button [disabled]="!canComment" type="submit" class="btn btn-info center-block">Dodaj komentarz</button>
+        <button [disabled]="!canComment" type="submit" class="btn btn-info center-block" >Dodaj komentarz</button>
+
       </form>
     </div>
 

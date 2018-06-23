@@ -32,6 +32,7 @@ export class AdminInfoComponent implements OnInit {
   messages: Observable<Message[]>;
 
   messagesWid: Observable<any>;
+  reservationsWithId: Observable<any>;
 
   constructor(private db: AngularFirestore, public authService: AuthService) { }
 
@@ -50,10 +51,23 @@ export class AdminInfoComponent implements OnInit {
           return { id, ...data };
         });
       });
+
+    this.reservationsWithId = this.reservationCol.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Reservation;
+        const id = a.payload.doc.id;
+        return {id, ...data};
+      });
+    });
   }
 
-  delete(message) {
+  deleteM(message) {
     this.db.collection('messages').doc(message.id).delete();
+  }
+
+  deleteR(reservation) {
+    // console.log(reservation);
+    this.db.collection('reservations').doc(reservation.id).delete();
   }
 
 
