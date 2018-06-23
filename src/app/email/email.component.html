@@ -21,10 +21,10 @@
           <textarea class="form-control" rows="5"  #inputMessage="ngModel" id="inputMessage" name="inpputMessage" placeholder="Treść wiadomości" required minlength="10" [(ngModel)]="messageText"></textarea>
           <div *ngIf="inputMessage.invalid && (inputMessage.dirty || inputMessage.touched)" class="text-danger">
             <div *ngIf="inputMessage?.errors.required">Wiadomość jest wymagana.</div>
-            <div *ngIf="inputMessage?.errors.minlength">Wiadomość nie może być krótsze niż 10 znaków.</div>
+            <div *ngIf="inputMessage?.errors.minlength">Wiadomość nie może być krótsza niż 10 znaków.</div>
           </div>
         </div>
-        <button type="submit" class="btn btn-info" [disabled]="msgForm.invalid">Wyślij</button>
+        <button type="submit" class="btn btn-basic"  [disabled]="msgForm.invalid">Wyślij</button>
         <button type="button" class="btn btn-default" (click)="msgForm.resetForm({})">Anuluj</button>
       </form>
     </div>
